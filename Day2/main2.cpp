@@ -27,18 +27,7 @@ int main(int argc, char *argv[]){
         while ( getline (myfile,line)){
             // std::cout<<"First: "<<line.at(0)<<std::endl;
             // std::cout<<"Second: "<<line.at(2)<<std::endl;
-            if (line.at(2) == 'X'){
-                totalScore += 0;
-                
-            }
-            if (line.at(2) == 'Y'){
-                totalScore += 3;
-                
-            }
-            if (line.at(2) == 'Z'){
-                totalScore += 6;
-                
-            }
+          
             totalScore += calculateWin(line.at(0), line.at(2));
             
 
@@ -55,6 +44,17 @@ int main(int argc, char *argv[]){
 
 int calculateWin(char a, char b){
     int total = 0;
+    if (b == 'X'){
+        total += 0;
+                
+    }
+    if (b == 'Y'){
+        total += 3;
+    }
+    if (b == 'Z'){
+        total += 6;
+                
+    }
     if (a == 'A'){
         if (b == 'X'){
             total += 3;
