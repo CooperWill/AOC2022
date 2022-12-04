@@ -27,7 +27,9 @@ int main(int argc, char *argv[]){
 
     if (myfile.is_open()){
         while ( getline (myfile,line)){
-           if (line.size() != 0){   
+           if (line.size() != 0){
+            replace(line.begin(), line.end(), '-', ' ');
+            replace(line.begin(), line.end(), ',',' ');   
             part1 += partOne(line);
             part2 += partTwo(line);    
            }    
