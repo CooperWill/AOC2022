@@ -18,8 +18,6 @@ int main(int argc, char *argv[]){
 
     std::string line;
     std::ifstream myfile;
-    std::string currentLine;
-    int total = 0;
     std::vector<std::string> numbers;
     int part1 = 0;
     int part2 = 0;
@@ -39,13 +37,12 @@ int main(int argc, char *argv[]){
     }
    std::cout<<"Total: "<<part1<<std::endl;
    std::cout<<"part 2: "<<part2<<std::endl;
-    return 0;
+
+   return 0;
 }
 
 int partOne(std::string line){
     int intValues[4];
-    int testValue;
-    int num;
     int firstStart, firstEnd, secondStart, secondEnd;    
     std::vector<std::string> values;
     boost::split(values, line, boost::is_any_of("\t "));
@@ -55,19 +52,16 @@ int partOne(std::string line){
     secondStart = stoi(values.at(2));
     secondEnd = stoi(values.at(3));
 
-        if((firstStart <= secondStart && firstEnd >= secondEnd) || (firstStart >= secondStart && firstEnd <= secondEnd)){
-            return 1;
-        }
+    if((firstStart <= secondStart && firstEnd >= secondEnd) || (firstStart >= secondStart && firstEnd <= secondEnd)){
+        return 1;
+    }
 
     return 0;
 
 }
 
 int partTwo(std::string line){
-    std::vector<int> first;
-    std::vector<int> second;
-    int testValue;
-    int num;
+
     int firstStart, firstEnd, secondStart, secondEnd;
     
     std::vector<std::string> values;
@@ -78,14 +72,10 @@ int partTwo(std::string line){
     secondStart = stoi(values.at(2));
     secondEnd = stoi(values.at(3));
 
-        if((firstStart <= secondStart && firstEnd >= secondStart) || (secondStart <= firstStart && secondEnd >= firstStart)){
-             return 1;
-        }
-
+    if((firstStart <= secondStart && firstEnd >= secondStart) || (secondStart <= firstStart && secondEnd >= firstStart)){
+        return 1;
+    }
 
     return 0; 
-
-
-
 
 }
